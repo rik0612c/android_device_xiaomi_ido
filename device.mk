@@ -138,7 +138,8 @@ PRODUCT_COPY_FILES += \
 # Sensor HAL
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
-    sensors.msm8916
+    sensors.msm8916 \
+    sensors.ido
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/_hals.conf:system/vendor/etc/sensors/_hals.conf \
