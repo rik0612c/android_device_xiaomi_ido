@@ -137,7 +137,8 @@ PRODUCT_COPY_FILES += \
 
 # Sensor HAL
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-impl.ido \
+    android.hardware.sensors@1.0-service.ido \
     sensors.msm8916 \
     sensors.ido
 
