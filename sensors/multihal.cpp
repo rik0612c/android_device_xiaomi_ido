@@ -612,8 +612,8 @@ static void fix_sensor_flags(int version, sensor_t& sensor) {
         if (sensor.type == SENSOR_TYPE_PROXIMITY ||
                 sensor.type == SENSOR_TYPE_TILT_DETECTOR) {
             int new_flags = SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ON_CHANGE_MODE;
-            ALOGV("Changing flags of handle=%d from %x to %x",
-                    sensor.handle, sensor.flags, new_flags);
+            //ALOGV("Changing flags of handle=%d from %x to %x",
+            //        sensor.handle, sensor.flags, new_flags);
             sensor.flags = new_flags;
         }
     }
