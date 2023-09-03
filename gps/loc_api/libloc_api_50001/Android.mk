@@ -37,15 +37,8 @@ LOCAL_SRC_FILES += \
     loc_eng_dmn_conn_glue_pipe.c
 
 LOCAL_CFLAGS += \
-    -fno-short-enums \
-    -D_ANDROID_ \
-    -Wno-format \
-    -Wno-mismatched-tags \
-    -Wno-null-conversion \
-    -Wno-reorder \
-    -Wno-unused-function \
-    -Wno-unused-parameter \
-    -Wno-unused-variable
+     -fno-short-enums \
+     -D_ANDROID_
 
 LOCAL_C_INCLUDES:= \
     $(TARGET_OUT_HEADERS)/gps.utils \
@@ -98,9 +91,6 @@ LOCAL_SRC_FILES += \
 LOCAL_CFLAGS += \
     -fno-short-enums \
     -D_ANDROID_ \
-    -Wno-format \
-    -Wno-mismatched-tags \
-    -Wno-unused-parameter
 
 ifeq ($(TARGET_BUILD_VARIANT),user)
    LOCAL_CFLAGS += -DTARGET_BUILD_VARIANT_USER
