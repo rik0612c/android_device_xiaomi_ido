@@ -13,7 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/xiaomi/ido/full_ido.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit from ido device
+$(call inherit-product, device/xiaomi/ido/device.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
@@ -24,9 +29,13 @@ TARGET_BOARD_PLATFORM_VARIANT := msm8939
 # Assert
 TARGET_OTA_ASSERT_DEVICE := ido
 
-PRODUCT_NAME := lineage_ido
-BOARD_VENDOR := xiaomi
+# Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ido
+PRODUCT_NAME := lineage_ido
+PRODUCT_BRAND := Xiaomi
+PRODUCT_MODEL := Redmi 3
+PRODUCT_MANUFACTURER := Xiaomi
+BOARD_VENDOR := xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
