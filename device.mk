@@ -61,7 +61,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:system/vendor/etc/permissions/android.hardware.consumerir.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl
+    android.hardware.ir@1.0-service.ido
 
 # Fingerprint
 PRODUCT_COPY_FILES += \
@@ -90,6 +90,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
+
+# HIDL
+PRODUCT_PACKAGES += \
+    vndservicemanager
 
 # Init scripts
 PRODUCT_PACKAGES += \

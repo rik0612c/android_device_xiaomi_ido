@@ -68,6 +68,9 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
+# Manifest
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
