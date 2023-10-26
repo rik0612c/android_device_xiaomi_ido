@@ -15,16 +15,12 @@ cc_library_static {
         "libdl"
     ],
     export_include_dirs: ["."],
-    cflags: [
-        "-Wall",
-        "-Werror",
-    ],
 }
 
 cc_library_shared {
-    name: "android.hardware.sensors@1.0-impl.ido",
+    name: "android.hardware.sensors@1.0-impl.msm8916",
     defaults: ["hidl_defaults"],
-    vendor: true,
+    proprietary: true,
     relative_install_path: "hw",
     srcs: ["Sensors.cpp"],
     shared_libs: [
@@ -44,12 +40,11 @@ cc_library_shared {
 }
 
 cc_binary {
-    name: "android.hardware.sensors@1.0-service.ido",
-    vintf_fragments: ["android.hardware.sensors@1.0-service.ido.xml"],
+    name: "android.hardware.sensors@1.0-service.msm8916",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     vendor: true,
-    init_rc: ["android.hardware.sensors@1.0-service.ido.rc"],
+    init_rc: ["android.hardware.sensors@1.0-service.msm8916.rc"],
     srcs: ["service.cpp"],
 
     shared_libs: [

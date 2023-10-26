@@ -476,7 +476,6 @@ static int device__close(struct hw_device_t *dev) {
     if (ctx != NULL) {
         int retval = ctx->close();
         delete ctx;
-        return retval;
     }
     return 0;
 }
@@ -524,6 +523,15 @@ static int device__inject_sensor_data(struct sensors_poll_device_1 *dev,
 
 static int open_sensors(const struct hw_module_t* module, const char* name,
         struct hw_device_t** device);
+
+static bool starts_with(const char* s, const char* prefix) {
+    if (s == NULL || prefix == NULL) {
+        return false;
+    }
+    size_t s_size = strlen(s);
+    size_t prefix_size = strlen(prefix);
+    return s_size >= prefix_size && strncmp(s, prefix, prefix_size) == 0;
+}
 
 /*
  * Adds valid paths from the config file to the vector passed in.
@@ -612,8 +620,8 @@ static void fix_sensor_flags(int version, sensor_t& sensor) {
         if (sensor.type == SENSOR_TYPE_PROXIMITY ||
                 sensor.type == SENSOR_TYPE_TILT_DETECTOR) {
             int new_flags = SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ON_CHANGE_MODE;
-            //ALOGV("Changing flags of handle=%d from %x to %x",
-            //        sensor.handle, sensor.flags, new_flags);
+            ALOGV("Changing flags of handle=%d from %x to %x",
+                    sensor.handle, sensor.flags, new_flags);
             sensor.flags = new_flags;
         }
     }
